@@ -1,33 +1,40 @@
 # ARCHIE response segmentation and classification prompts
 
-The notebook uses `gpt-5-nano` for segmentation and `gpt-5-mini` for classification. It requests one response code per sentence; temperature is not explicitly set. The code labels below are standardised to match the thesis.
+The notebook used `gpt-5-mini` for segmentation and for classification. It requests one response code per sentence (independent LLM calls to prevent interference).
 
 ## Sentence segmentation
 
 System prompt:
 
-```text
+```python
+SEGMENTATION_SYSTEM_PROMPT = '''\
 You are a linguistic expert. Split the provided text into a list of distinct parts / sentences.Rules: 1. Keep emojis attached to the relevant sentence. 2. Do not change text - just split into sentences. 3. Split multi-part messages into logical units. If it is just one sentence, return it as a single-item list. 4. Where the text is a question involving multiple parts, keep each part together as one sentence.
+'''
 ```
 
 User prompt:
 
-```text
+```python
+SEGMENTATION_USER_PROMPT = '''\
 Split this text:
 {text}
+'''
 ```
 
 ## Response classification
 
 System prompt:
 
-```text
+```python
+CLASSIFICATION_SYSTEM_PROMPT = '''\
 You are an expert linguistics researcher classifying chatbot logs. Classify the target sentence based on its functional intent using the provided context:
+'''
 ```
 
 User prompt (braced expressions are runtime inputs):
 
-```text
+```python
+CLASSIFICATION_USER_PROMPT = '''\
 ### CONTEXT
 **Current Activity:** {context_data.get('activity', 'Unknown')}
 **Reading Text Content Snippet:** {text_snippet}
@@ -46,6 +53,7 @@ Classify the target sentence into exactly one of these codes:
 - **A_CTRL**: Greetings, closings, flow management (e.g., "Hello", "Are you ready?", "Let's get back on track.", "Goodbye.", "Would you like to try Grammar Focus again? Or choose a different activity?", "Ready for our next question?", "Please provide feedback on your experience.").
 - **A_ENC**: Praise, cheerleading, and offers of help (e.g., "Good job!", "Keep it up!", "You can ask for help with any words or phrases you're unsure about.").
 - **Other**: Anything else.
+'''
 ```
 
 The supplied notebook requests a JSON object containing one `code`. The optional reasoning field is disabled. It truncates the reading text snippet to 500 characters (appending `...` if truncated) and merges adjacent segments with the same code.
