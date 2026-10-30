@@ -16,3 +16,7 @@ Activity Context: {activity}
 
 Classify the intent of the current student message using only one of the above categories.
 ```
+
+## Labels used in the thesis
+
+The final scheme uses `S_CTRL` for Interaction Control, `S_OFF_TSK` for Off Task, `S_ANS` for Provide Answer, and `S_HELP` for the combined Ask Question and Seek Help category. Other messages were excluded from the final scheme. The prompt above preserves the original labels.

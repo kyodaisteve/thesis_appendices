@@ -1,6 +1,6 @@
-# ARCHIE response segmentation and classification prompts (older script)
+# ARCHIE response segmentation and classification prompts
 
-These prompts were extracted from an older ARCHIE classification script. That script specifies `gpt-oss:20b`, temperature 0, and one code per target sentence. It does not document the `gpt-5-mini` multi-label classifier described in the thesis.
+These prompts are extracted from the supplied `archie_response_classification_3` notebook. The notebook uses `gpt-5-nano` for segmentation and `gpt-5-mini` for classification. It requests one response code per sentence; temperature is not explicitly set. Labels in the original prompt are preserved below, followed by the corresponding thesis codes assigned later in Google Sheets.
 
 ## Sentence segmentation
 
@@ -22,10 +22,10 @@ Split this text:
 System prompt:
 
 ```text
-You are an expert researcher analyzing chatbot logs for EFL learners interacting with Archie. Your task is to classify the functional intent of the TARGET SENTENCE spoken by the AI (Archie). You MUST respond with a valid JSON object.
+You are an expert linguistics researcher classifying chatbot logs. Classify the target sentence based on its functional intent using the provided context:
 ```
 
-User prompt (expressions in braces are runtime placeholders):
+User prompt (braced expressions are runtime inputs):
 
 ```text
 ### CONTEXT
@@ -48,4 +48,16 @@ Classify the target sentence into exactly one of these codes:
 - **archieOther**: Anything else.
 ```
 
-The script requests a JSON object with a `code` selected from the seven categories above. Its optional reasoning field is disabled in the supplied configuration. The reading text snippet is limited to 500 characters (plus `...` when truncated).
+The supplied notebook requests a JSON object containing one `code`. The optional reasoning field is disabled. It truncates the reading text snippet to 500 characters (appending `...` if truncated) and merges adjacent segments with the same code.
+
+## Labels used in the thesis
+
+| Prompt label | Thesis code |
+| --- | --- |
+| `archieFeedbackCorrect` | `A_FB_COR` |
+| `archieFeedbackIncorrect` | `A_FB_INC` |
+| `archieActivityQuestion` | `A_QUES` |
+| `archieScaffoldingHint` | `A_SCAF` |
+| `archieInteractionControl` | `A_CTRL` |
+| `archieEncouragementSupport` | `A_ENC` |
+| `archieOther` | Other ARCHIE response (excluded from the final scheme) |
