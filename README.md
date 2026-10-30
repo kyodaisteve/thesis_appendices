@@ -6,5 +6,3 @@ This repository provides the system prompts, activity instructions, classificati
 - ARCHIE: [system prompt and activity instructions](archie/system-prompt-and-activities.md), [student message classification prompt](archie/student-message-classification.md), and [response segmentation and classification prompts](archie/response-classification.md).
 - TAMMY: [system prompt](tammy/system-prompt.md), [response validity classification](tammy/interaction-classification.md), [translation success classification](tammy/translation-success-classification.md), and [user intent classification](tammy/user-intent-classification.md).
 - Personalisation: [experimental prompt injection](personalisation/prompt-injection.md).
-
-The ARCHIE student-message prompt lists more categories than the final analysis scheme; see the thesis chapter for the final coding scheme.

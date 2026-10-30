@@ -1,6 +1,6 @@
 # ARCHIE response segmentation and classification prompts
 
-These prompts are extracted from the supplied `archie_response_classification_3` notebook. The notebook uses `gpt-5-nano` for segmentation and `gpt-5-mini` for classification. It requests one response code per sentence; temperature is not explicitly set. Labels in the original prompt are preserved below, followed by the corresponding thesis codes assigned later in Google Sheets.
+The notebook uses `gpt-5-nano` for segmentation and `gpt-5-mini` for classification. It requests one response code per sentence; temperature is not explicitly set. The code labels below are standardised to match the thesis.
 
 ## Sentence segmentation
 
@@ -39,25 +39,13 @@ User prompt (braced expressions are runtime inputs):
 
 ### INSTRUCTIONS
 Classify the target sentence into exactly one of these codes:
-- **archieFeedbackCorrect**: Archie confirms the student's answer is correct (e.g., "That's right!", "Exactly."). When student answer is correct and Archie praises or affirms it.
-- **archieFeedbackIncorrect**: Archie indicates the student's answer is incorrect (e.g., "Not quite.", "That's incorrect." "). When student answer is incorrect. Archie may also provide the correct answer.
-- **archieActivityQuestion**: Instructions/Setup/Rules/Context for the current activity and test. Content-related questions about the text. (e.g., "では、本文の英語と対応する英語の定義をマッチングさせてみましょう", "What is the main idea?", "Why did the character...?", "素晴らしいですね！では、本文の英語と対応する英語の定義をマッチングさせてみましょう。 A. accompanied 1. likely to behave in a particular way B. perceptions 2. went together with C. cautious 3. beliefs or opinions D. tended 4. worried E. concerned 5. careful モモカさん、やってみましょう！").
-- **archieScaffoldingHint**: Hints/Guidance without giving the full answer. (e.g., "Think about...", "Remember that...", "Can you find...", "The word Furthermore means..."). Usually happens after activity questions, student request for help, or incorrect student answers.
-- **archieInteractionControl**: Greetings, closings, flow management (e.g., "Hello", "Are you ready?", "Let's get back on track.", "Goodbye.", "Would you like to try Grammar Focus again? Or choose a different activity?", "Ready for our next question?", "Please provide feedback on your experience.").
-- **archieEncouragementSupport**: Praise, cheerleading, and offers of help (e.g., "Good job!", "Keep it up!", "You can ask for help with any words or phrases you're unsure about.").
-- **archieOther**: Anything else.
+- **A_FB_COR**: Archie confirms the student's answer is correct (e.g., "That's right!", "Exactly."). When student answer is correct and Archie praises or affirms it.
+- **A_FB_INC**: Archie indicates the student's answer is incorrect (e.g., "Not quite.", "That's incorrect." "). When student answer is incorrect. Archie may also provide the correct answer.
+- **A_QUES**: Instructions/Setup/Rules/Context for the current activity and test. Content-related questions about the text. (e.g., "では、本文の英語と対応する英語の定義をマッチングさせてみましょう", "What is the main idea?", "Why did the character...?", "素晴らしいですね！では、本文の英語と対応する英語の定義をマッチングさせてみましょう。 A. accompanied 1. likely to behave in a particular way B. perceptions 2. went together with C. cautious 3. beliefs or opinions D. tended 4. worried E. concerned 5. careful モモカさん、やってみましょう！").
+- **A_SCAF**: Hints/Guidance without giving the full answer. (e.g., "Think about...", "Remember that...", "Can you find...", "The word Furthermore means..."). Usually happens after activity questions, student request for help, or incorrect student answers.
+- **A_CTRL**: Greetings, closings, flow management (e.g., "Hello", "Are you ready?", "Let's get back on track.", "Goodbye.", "Would you like to try Grammar Focus again? Or choose a different activity?", "Ready for our next question?", "Please provide feedback on your experience.").
+- **A_ENC**: Praise, cheerleading, and offers of help (e.g., "Good job!", "Keep it up!", "You can ask for help with any words or phrases you're unsure about.").
+- **Other**: Anything else.
 ```
 
 The supplied notebook requests a JSON object containing one `code`. The optional reasoning field is disabled. It truncates the reading text snippet to 500 characters (appending `...` if truncated) and merges adjacent segments with the same code.
-
-## Labels used in the thesis
-
-| Prompt label | Thesis code |
-| --- | --- |
-| `archieFeedbackCorrect` | `A_FB_COR` |
-| `archieFeedbackIncorrect` | `A_FB_INC` |
-| `archieActivityQuestion` | `A_QUES` |
-| `archieScaffoldingHint` | `A_SCAF` |
-| `archieInteractionControl` | `A_CTRL` |
-| `archieEncouragementSupport` | `A_ENC` |
-| `archieOther` | Other ARCHIE response (excluded from the final scheme) |
