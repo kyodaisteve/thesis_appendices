@@ -1,6 +1,6 @@
 # TAMMY user message intent classification prompt
 
-```text
+```python
 prompt = f"""You are an AI that categorizes user messages sent to Tammy,
 a chatbot designed to help ESL students practice their translation
 skills.

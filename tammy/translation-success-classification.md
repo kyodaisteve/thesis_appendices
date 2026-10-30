@@ -1,6 +1,6 @@
 # TAMMY translation session success classification prompt
 
-```text
+```python
 prompt = f"""Evaluate whether this final translation matches the source
 sentence:
 

@@ -1,6 +1,6 @@
 # ARCHIE system prompt and activity instructions
 
-The following configuration is reproduced from the thesis appendix. Placeholders are supplied at runtime.
+Placeholders are supplied at runtime.
 
 ```python
 system_prompt = f'''

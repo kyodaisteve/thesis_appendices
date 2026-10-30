@@ -1,6 +1,6 @@
 # TAMMY interaction classification prompt
 
-```text
+```python
 prompt_template = PromptTemplate.from_template(
 
 """You are an AI that evaluates the responses of a chatbot

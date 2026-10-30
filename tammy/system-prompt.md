@@ -1,6 +1,6 @@
 # TAMMY system prompt
 
-```text
+```python
 system_prompt = f'''
 
 **Translation Training Session**
