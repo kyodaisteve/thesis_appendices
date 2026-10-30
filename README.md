@@ -1,21 +1,14 @@
-# Thesis appendices: prompts and classification materials
+# Thesis chatbot and classification prompts
 
-This repository contains copies of the prompt and classification materials included in the LaTeX appendices of the thesis on the Kōrero English-learning chatbot framework. The files preserve the thesis source, including LaTeX formatting and placeholders, rather than presenting executable implementations. They are intended to be read alongside the thesis; they are not standalone LaTeX documents.
+This repository provides the system prompts, activity instructions and classification prompts available in the thesis source. The Markdown files reproduce their content for reading; placeholders such as `{context}` are runtime inputs. Line breaks and formatting have been adapted from LaTeX, and the files are not executable implementations.
 
-## Contents
+- Penny: [persona system prompt](penny/persona-system-prompt.md), [system prompt and guidelines](penny/system-prompt-guidelines.md), and [feedback classification prompts](penny/feedback-classification.md).
+- ARCHIE: [system prompt and activity instructions](archie/system-prompt-and-activities.md) and [student message classification prompt](archie/student-message-classification.md).
+- TAMMY: [system prompt](tammy/system-prompt.md), [response validity classification](tammy/interaction-classification.md), [translation success classification](tammy/translation-success-classification.md), and [user intent classification](tammy/user-intent-classification.md).
+- Personalisation: [experimental prompt injection](personalisation/prompt-injection.md).
 
-- [Penny daily writing prompts](penny/penny_appendix.tex)
-- [Penny persona system prompt](penny/penny_persona_appendix.tex)
-- [Penny system prompt and guidelines](penny/penny_prompt_appendix.tex)
-- [Penny feedback classification definitions and prompts](penny/penny_coding_appendix.tex)
-- [ARCHIE system prompt, activity instructions, student-message classification prompt and aggregate coding table](archie/archie_appendix.tex)
-- [TAMMY chatbot and classification prompts](tammy/tammy_appendix.tex)
-- [Personalisation prompt injection](personalisation/jla_prompt_appendix.tex)
+The two Penny system-prompt files are distinct thesis source appendices; their presence here does not establish that they are interchangeable or identify which version was used in each study. The ARCHIE student-message prompt lists more categories than the final analysis scheme; see the thesis chapter for the final coding scheme.
 
-The two Penny system-prompt files are distinct thesis appendices; their presence here does not establish that they are interchangeable or identify which version was used in each study. The ARCHIE file includes an aggregate results table in addition to the prompt materials.
+The source workspace did not contain the full classification pipeline, Penny uptake classifier prompt, ARCHIE response-classification prompt, or learner-model classification implementations. This repository does not contain learner interaction data or model weights and is not a complete executable replication package.
 
-## Scope and limitations
-
-These files reproduce the materials available in the thesis workspace. They do not include the classification pipeline source code, learner interaction data, or model weights. In particular, the Penny uptake classifier prompt, the ARCHIE response-classification prompt, and learner-model classification implementations are described in the thesis but were not found as standalone materials in the workspace. The repository should not be treated as a complete executable replication package. Dynamic fields in braces are placeholders, not actual participant data.
-
-For a stable reference, cite a specific commit or a versioned release of this repository along with the thesis. A DOI can be obtained by archiving a release through a repository service such as Zenodo.
+For a stable reference, cite a specific commit or an archived release of this repository with the thesis.
