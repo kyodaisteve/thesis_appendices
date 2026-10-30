@@ -1,6 +1,6 @@
-# ARCHIE response segmentation and classification prompts
+# ARCHIE response segmentation and classification prompts (older script)
 
-These prompts were extracted from the supplied ARCHIE classification script. That script specifies `gpt-oss:20b`, temperature 0, and one code per target sentence; the thesis describes a different model and multi-label classification. The relationship between these versions requires confirmation.
+These prompts were extracted from an older ARCHIE classification script. That script specifies `gpt-oss:20b`, temperature 0, and one code per target sentence. It does not document the `gpt-5-mini` multi-label classifier described in the thesis.
 
 ## Sentence segmentation
 
